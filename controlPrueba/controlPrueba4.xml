@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE avisos SYSTEM "controlPrueba4.dtd">
+
+<avisos>
+    <aviso>
+        <titulo autor="Antonio Oliva"></titulo>
+        <descripcion>Esto es un texto de prueba</descripcion>
+    </aviso>
+
+    <aviso fecha_inicio="16/01/2024" fecha_fin="17/01/2024">
+        <titulo autor="Juan Oliva"></titulo>
+        <descripcion>Esto es otro texto de prueba</descripcion>
+        <descripcion>Segunda descripcion en mismo aviso</descripcion>
+    </aviso>
+
+</avisos>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE vehiculo SYSTEM "controlPrueba3.dtd">
+
+<vehiculo combustible="GLP" marca="Mercedes">
+    <matricula>1234ABCD</matricula>
+    
+    <propietario>Antonio Oliva</propietario>
+    <Km_recorridos>120.000</Km_recorridos>
+
+    <propietario>Juan Sanchez</propietario>
+    <Km_recorridos>20.000</Km_recorridos>
+</vehiculo>

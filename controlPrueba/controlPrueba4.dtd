@@ -1,0 +1,7 @@
+<!ELEMENT avisos (aviso)*>
+<!ELEMENT aviso (titulo, descripcion+)>
+<!ATTLIST aviso fecha_inicio CDATA #IMPLIED>
+<!ATTLIST aviso fecha_fin CDATA #IMPLIED>
+<!ELEMENT titulo (#PCDATA)>
+<!ATTLIST titulo autor CDATA #REQUIRED>
+<!ELEMENT descripcion (#PCDATA)>

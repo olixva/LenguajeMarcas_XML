@@ -1,0 +1,4 @@
+    <!ELEMENT mezclas_de_colores (mezcla)+>
+    <!ELEMENT mezcla (color)+>
+        <!ATTLIST mezcla resultado CDATA #REQUIRED>
+    <!ELEMENT color (#PCDATA)>

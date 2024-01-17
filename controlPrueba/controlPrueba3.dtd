@@ -1,0 +1,8 @@
+<!ELEMENT vehiculo (matricula?, (propietario, Km_recorridos)*)>
+<!ATTLIST vehiculo combustible (gasolina | gasoil | GLP | electrico | hibrido) #REQUIRED>
+<!ATTLIST vehiculo color CDATA #IMPLIED>
+<!ATTLIST vehiculo marca CDATA #IMPLIED>
+<!ATTLIST vehiculo modelo CDATA #IMPLIED>
+<!ELEMENT matricula (#PCDATA)>
+<!ELEMENT propietario (#PCDATA)>
+<!ELEMENT Km_recorridos (#PCDATA)>

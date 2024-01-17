@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE persona [
-    <!ELEMENT persona (nombre, apellidos, edad)>
+<!DOCTYPE musicos [
+    <!ELEMENT musicos (musico)*>
+
+    <!ELEMENT musico ((nombre | apodo), fechaNacimiento, instrumento?)>
+
+    <!ELEMENT instrumento (#PCDATA)>
+    <!ATTLIST instrumento tipo (viento | cuerda | percusion) #IMPLIED>
     <!ELEMENT nombre (#PCDATA)>
-    <!ELEMENT apellidos (#PCDATA)>
-    <!ELEMENT edad (#PCDATA)>
+    <!ELEMENT apodo (#PCDATA)>
+    <!ELEMENT fechaNacimiento ANY>
 ]>
 
-<persona>
-    <nombre>Jorge</nombre>
-    <apellidos>Sánchez Asenjo </apellidos>
-    <edad>21</edad>
-</persona>
+<musicos>
+    <musico>
+        <nombre>Antonio Vivaldi</nombre>
+        <fechaNacimiento>4 de &lt;marzo&gt; de 1678</fechaNacimiento>
+    </musico>
+
+    <musico>
+        <apodo>Melenti</apodo>
+        <fechaNacimiento>4 de &lt;Abril&gt; de 1995</fechaNacimiento>
+        <instrumento tipo="cuerda">guitarra</instrumento>
+    </musico>
+</musicos>
