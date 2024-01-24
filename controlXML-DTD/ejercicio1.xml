@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    En libro yo hubiera puesto autor como atributo de tipo IDREF (VER ejercicio1Corregido.xml
+    De lo contario daria error al tener dos elementos con el mismo ID.
+-->
+<!DOCTYPE libros [
+    <!ELEMENT libros (libro | autor)*>
+
+    <!ELEMENT libro (titulo, autor, precio+, editorial, tapa_dura?)>
+    <!ATTLIST libro ISBN CDATA #IMPLIED>
+    <!ATTLIST libro idioma CDATA #IMPLIED>
+
+    <!ELEMENT titulo (#PCDATA)>
+
+    <!-- El atributo id deberia ser de tipo ID pero al ver dos elementos con el mismo no es posible por eso es CDATA-->
+    <!ELEMENT autor ANY>
+    <!ATTLIST autor id CDATA #IMPLIED>
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT apellido1 (#PCDATA)>
+    <!ELEMENT apellido2 (#PCDATA)>
+
+    <!ELEMENT precio (#PCDATA)>
+    <!ATTLIST precio moneda (euro | dolar | libra | franco-suizo) #IMPLIED>
+
+    <!ELEMENT editorial (#PCDATA)>
+
+    <!ELEMENT tapa_dura EMPTY>
+
+]>
+<!-- Moneda será un grupo de selección y podrá valer: euro, dólar, libra, franco suizo. -->
+
+<libros>
+    
+    <libro ISBN= "84123456198" idioma= "es">
+        <titulo>XML para principiantes</titulo>
+        <autor id= "JPR">Juan Pérez Robledillo</autor>
+        <precio moneda= "euro">25.00</precio>
+        <precio moneda= "libra">20.00</precio>
+        <editorial>Editorial ABC</editorial>
+    </libro>
+
+    <autor id= "JPR">
+        <nombre>Juan</nombre>
+        <apellido1>Pérez</apellido1>
+        <apellido2>Robledillo</apellido2>
+    </autor>
+
+    <libro>
+        <titulo>Programación en XML</titulo>
+        <autor>Maria Gómez</autor>
+        <precio>30.50</precio>
+        <editorial>Ediciones XYZ</editorial>
+        <tapa_dura />
+    </libro>
+
+</libros>

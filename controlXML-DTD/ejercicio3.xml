@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE paises [
+    <!ELEMENT paises (pais*)>
+    <!ELEMENT pais (superficie, moneda+, gobierno, fronteras)>
+    <!ATTLIST pais nombre ID #REQUIRED>
+
+    <!ELEMENT superficie (#PCDATA)>
+    <!ATTLIST superficie unidad NMTOKEN #REQUIRED>
+
+    <!ELEMENT moneda (#PCDATA)>
+
+    <!ELEMENT gobierno EMPTY>
+    <!ATTLIST gobierno sistema NMTOKEN #IMPLIED>
+
+    <!ELEMENT fronteras EMPTY>
+    <!ATTLIST fronteras pais IDREFS #IMPLIED>
+]>
+
+<paises>
+    <pais nombre="España">
+        <superficie unidad="km2">504.645</superficie>
+        <moneda>EURO</moneda>
+        <moneda>PESETA</moneda>
+        <gobierno sistema="monarquía" />
+        <fronteras pais="Francia" />
+    </pais>
+
+    <pais nombre="Francia">
+        <superficie unidad="km2">675.417</superficie>
+        <moneda>EURO</moneda>
+        <moneda>FRANCO FRANCES</moneda>
+        <gobierno sistema="republica" />
+        <fronteras pais="España Suiza" />
+    </pais>
+
+    <pais nombre="Suiza">
+        <superficie unidad="km2">41.290</superficie>
+        <moneda>FRANCO SUIZO</moneda>
+        <gobierno sistema="republica" />
+        <fronteras pais="Francia" />
+    </pais>
+</paises>

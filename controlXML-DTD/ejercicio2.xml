@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE todoList [
+    <!ELEMENT todoList (tarea | persona)*>
+
+    <!ELEMENT tarea (#PCDATA | ordenante)*>
+    <!ATTLIST tarea fecha CDATA #IMPLIED>
+    <!ATTLIST tarea fechaLimite CDATA #IMPLIED>
+    <!ATTLIST tarea estado (No_iniciada | Iniciada | En_Proceso | Finalizada) #REQUIRED>
+    <!ATTLIST tarea posibles_ejecutores NMTOKENS #REQUIRED>
+
+    <!ELEMENT ordenante EMPTY>
+    <!ATTLIST ordenante dni NMTOKEN #REQUIRED>
+
+    <!ELEMENT persona (#PCDATA)>
+    <!ATTLIST persona DNI NMTOKEN #REQUIRED>
+]>
+
+<todoList>
+    <tarea fechaLimite="Hoy" estado="No_iniciada" posibles_ejecutores="12345678B 12345678A">
+        Ir al médico
+        <ordenante dni="12345678D"/>
+    </tarea>
+
+    <tarea fecha="12-1-2003" fechaLimite="14-01-2003" estado="Finalizada" posibles_ejecutores="12345678A 12345678D">
+        Comprar pan
+        <ordenante dni="12345678C"/>
+    </tarea>
+
+    <tarea estado="Iniciada" posibles_ejecutores="12345678A 12345678B 12345678C">
+        Ir al gimnasio
+    </tarea>
+
+    <tarea fecha="19-01-2022" estado="En_Proceso" posibles_ejecutores="12345678A">
+        Ir a la compra
+    </tarea>
+
+    <persona DNI="12345678A">Juan</persona>
+    <persona DNI="12345678B">Pedro</persona>
+    <persona DNI="12345678C">Antonio</persona>
+    <persona DNI="12345678D">Maria</persona>
+</todoList>
