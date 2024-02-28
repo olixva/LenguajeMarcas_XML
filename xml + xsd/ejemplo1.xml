@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<todoList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="ejemplo1.xsd">
+    <tarea posibles_ejecutores="48843818y" estado="Finalizada" fecha="20 de febrero de 2011">
+    fechaLimite="1 de marzo de 2011"> Preparar ejercicios de DTDs <ordenante dni="48843818y"></ordenante>
+    </tarea>
+
+    <tarea posibles_ejecutores="48843818y 48843817y" estado="Finalizada"
+        fecha="20 de febrero de 2011"
+        fechaLimite="1 de marzo de 2011"> Borrar ejercicios de DTDs <ordenante dni="48843818y"></ordenante>
+    <ordenante
+            dni="48843817y"></ordenante>
+    </tarea>
+
+    <tarea posibles_ejecutores="48843817y" estado="iniciada"> Aprobar examen <ordenante
+            dni="48843817y"></ordenante>
+    </tarea>
+
+    <tarea posibles_ejecutores="48843818y" estado="No_iniciada"> fechaLimite="1 de marzo de 2011"
+    Actualizar ejercicios de DTDs <ordenante dni="48843818y"></ordenante>
+    </tarea>
+
+    <tarea posibles_ejecutores="48843818y" estado="Finalizada" fecha="20 de febrero de 2011">
+        Crear
+        ejercicios de DTDs </tarea>
+
+
+    <persona dni="48843818y">Antonio López Gomariz</persona>
+    <persona dni="4884383y">Rogelio Marín Gutiérrez</persona>
+    <persona dni="48832818y">Marcos Calero Gutiérrez</persona>
+    <persona dni="48844568y">Lucia Burguillos Lopez</persona>
+    <persona dni="44543818y">Daniel Oliva Cantero</persona>
+</todoList>

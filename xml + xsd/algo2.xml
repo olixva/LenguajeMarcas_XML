@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<algo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="algo2.xsd">
+  <!-- Elemento contenido:cualquier texto o VACÍO (sin hijos), ocurrencia:OBLIGATORIA y multiples
+  veces para poder repetir de varias formas -->
+  <fragil_00>fccxcxxcx</fragil_00>
+  <fragil_00 />
+
+  <!-- Elemento contenido:cualquier texto o VACÍO (sin hijos), ocurrencia:OPCIONAL y multiples veces
+  para poder repetir de varias formas -->
+  <fragil_01>fgdfgdfg</fragil_01>
+  <fragil_01 />
+
+  <!-- Elemento contenido:VACÍO obligatorio (sin hijos), ocurrencia:OBLIGATORIA y multiples veces
+  para poder repetir de varias formas -->
+  <fragil_02></fragil_02>
+  <fragil_02 />
+
+  <!-- Elemento contenido:VACÍO obligatorio (sin hijos), ocurrencia:OBLIGATORIA y multiples veces
+  para poder repetir de varias formas -->
+  <fragil_02bis></fragil_02bis>
+  <fragil_02bis />
+
+  <!-- Elemento contenido:VACÍO obligatorio (sin hijos), ocurrencia:OPCIONAL y multiples veces para
+  poder repetir de varias formas -->
+  <fragil_03></fragil_03>
+  <fragil_03 />
+
+  <!-- Elemento contenido:VACÍO obligatorio (sin hijos), ocurrencia:OPCIONAL y multiples veces para
+  poder repetir de varias formas -->
+  <fragil_03bis></fragil_03bis>
+  <fragil_03bis />
+
+  <!-- Elemento contenido:TEXTO OBLIGATORIO CON RESTRICCIONES (longitud de texto limitada) (sin
+  hijos), ocurrencia:OPCIONAL y ÚNICO -->
+  <fragil_04>cristal</fragil_04>
+
+  <!-- Elemento contenido:TEXTO OBLIGATORIO CON RESTRICCIONES (ENUMERADO DE TEXTO) (sin hijos),
+  ocurrencia:OPCIONAL y multiples veces para poder repetir de varias formas -->
+  <fragil_05>cristal</fragil_05>
+  <fragil_05>medicinas</fragil_05>
+  <fragil_05>ceramica</fragil_05>
+
+  <!-- Elemento contenido: TEXTO VACIO obligatorio (CON HIJOS), ocurrencia:OPCIONAL y multiples
+  veces para poder repetir de varias formas -->
+  <fragil_06>
+    <material>cristal</material>
+    <peso>12.56</peso>
+    <unidad_de_peso>kg</unidad_de_peso>
+  </fragil_06>
+
+  <fragil_06>
+    <material>medicinas</material>
+    <peso>1.56</peso>
+    <unidad_de_peso>kg</unidad_de_peso>
+  </fragil_06>
+
+  <fragil_06>
+    <material>ceramica</material>
+    <peso>78.45</peso>
+    <unidad_de_peso>kg</unidad_de_peso>
+  </fragil_06>
+
+  <!-- Elemento contenido: TEXTO opcional (CON HIJOS), ocurrencia:OPCIONAL y multiples veces para
+  poder repetir de varias formas -->
+  <fragil_07>COPAS <material>cristal</material>
+    <peso>12.56</peso>
+    <unidad_de_peso>kg</unidad_de_peso>
+  </fragil_07>
+
+  <fragil_07>VACUNAS <material>medicinas</material>
+    <peso>1.56</peso>
+    <unidad_de_peso>kg</unidad_de_peso>
+  </fragil_07>
+
+  <fragil_07>
+    <material>ceramica</material>
+    <peso>78.45</peso>
+    <unidad_de_peso>kg</unidad_de_peso>
+  </fragil_07>
+
+  <fragil_07>texto.... <material>ceramica</material>
+    <peso>78.45</peso> otro texto <unidad_de_peso>kg</unidad_de_peso>mucho
+    mas texto </fragil_07>
+
+  <!-- Como los tipos mixed="true" pueden tener muchas veces contenido dentro de todos los nodos, a
+  su " múltiple contenido"
+     no se le pueden poner restricciones.., las tendríamos que poner dentro de algún elemento simple-->
+
+
+  <!-- Elemento contenido: TEXTO VACÍO (CON HIJOS), ocurrencia:OPCIONAL y multiples veces para poder
+  repetir de varias formas -->
+
+  <fragil_08>
+    <descripcion>VACUNAS</descripcion>
+    <material>medicinas</material>
+    <peso>1.56</peso>
+    <unidad_de_peso>kg</unidad_de_peso>
+  </fragil_08>
+
+  <fragil_08> <!-- hemos impedido que haya contenido en este elemento, en su caso se pondrá el texto
+    dentro de <descripción> -->
+    <descripcion>VACUNAS</descripcion>
+    <material>medicinas</material>
+    <peso>1.56</peso>
+    <unidad_de_peso>kg</unidad_de_peso>
+  </fragil_08>
+
+
+  <!--   <fragil_09 Amaterial="cristal">COPAS</fragil_09>  -->
+
+  <!-- ELEMENTOS CON ATRIBUTOS -->
+
+  <!-- Elemento contenido:cualquier texto o VACÍO (sin hijos), ocurrencia:OBLIGATORIA y multiples
+  veces para poder repetir de varias formas -->
+  <Afragil_00 Amaterial="cristal">fsdfgdffsdf</Afragil_00>
+  <Afragil_00 Amaterial="cristal" />
+
+  <!-- Elemento contenido:cualquier texto o VACÍO (sin hijos), ocurrencia:OPCIONAL y multiples veces
+  para poder repetir de varias formas -->
+  <Afragil_01 Amaterial="cristal">fgdfgdfg</Afragil_01>
+  <Afragil_01 Amaterial="cristal" />
+
+  <!-- Elemento contenido:VACÍO obligatorio (sin hijos), ocurrencia:OBLIGATORIA y multiples veces
+  para poder repetir de varias formas -->
+  <Afragil_02 Amaterial="cristal"></Afragil_02>
+  <Afragil_02 Amaterial="cristal" />
+
+  <!-- Elemento contenido:VACÍO obligatorio (sin hijos), ocurrencia:OBLIGATORIA y multiples veces
+  para poder repetir de varias formas -->
+  <Afragil_02bis Amaterial="cristal"></Afragil_02bis>
+  <Afragil_02bis Amaterial="cristal" />
+
+
+</algo>

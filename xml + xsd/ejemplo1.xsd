@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="todoList">
+        <xs:complexType>
+            <xs:sequence>
+
+                <xs:element name="tarea" maxOccurs="unbounded" minOccurs="1">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:element name="ordenante" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:attribute name="dni" type="xs:NMTOKEN" use="required"></xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="posibles_ejecutores" type="xs:NMTOKENS" use="required"></xs:attribute>
+                        <xs:attribute name="estado" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="No_iniciada"></xs:enumeration>
+                                    <xs:enumeration value="iniciada"></xs:enumeration>
+                                    <xs:enumeration value="En_proceso"></xs:enumeration>
+                                    <xs:enumeration value="Finalizada"></xs:enumeration>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="fecha" type="xs:string" use="optional"></xs:attribute>
+                        <xs:attribute name="fechaLimite" type="xs:string" use="optional"></xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="persona" maxOccurs="unbounded" minOccurs="1">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute name="dni" type="xs:NMTOKEN" use="required"></xs:attribute>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:sequence>
+        </xs:complexType>
+
+    </xs:element>
+
+</xs:schema>

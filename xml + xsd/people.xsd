@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Definición del elemento principal "people" -->
+  <xs:element name="people">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+
+          <xs:element name="man">
+            <xs:complexType>
+              <xs:simpleContent>
+                <xs:extension base="xs:string">
+                  <xs:attribute name="dni" type="xs:ID" />
+                </xs:extension>
+              </xs:simpleContent>
+            </xs:complexType>
+          </xs:element>
+
+          <xs:element name="woman">
+            <xs:complexType>
+              <xs:simpleContent>
+                <xs:extension base="xs:string">
+                  <xs:attribute name="dni" type="xs:ID" />
+                </xs:extension>
+              </xs:simpleContent>
+            </xs:complexType>
+          </xs:element>
+
+
+          <xs:element name="man1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="nombre" type="xs:string" />
+                <xs:element name="dni1">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:ID">
+                      <xs:pattern value="[A-Za-z]{1}[0-9]{8}" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+
+          <xs:element name="man2">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="nombre" type="xs:string" />
+                <xs:element name="dni2">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]{8}[A-Za-z]{1}" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+
+          <xs:element name="torero">
+            <xs:complexType>
+              <xs:simpleContent>
+                <xs:extension base="xs:string">
+                  <xs:attribute name="mote" type="xs:string" />
+                </xs:extension>
+              </xs:simpleContent>
+            </xs:complexType>
+          </xs:element>
+
+        </xs:choice>
+
+
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:unique name="Man2UniqueDNI2">
+      <xs:selector xpath="man2" />
+      <xs:field xpath="dni2" />
+    </xs:unique>
+
+    <xs:unique name="toreroUnicos">
+      <xs:selector xpath="torero" />
+      <xs:field xpath="@mote" /><!-- los atributos se identifican comenzando con @ -->
+    </xs:unique>
+
+  </xs:element>
+</xs:schema>
+  

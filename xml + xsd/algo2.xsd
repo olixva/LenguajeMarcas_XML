@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Definición del elemento principal "algo" -->
+  <xs:element name="algo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="fragil_00" maxOccurs="unbounded" /><!-- al no llevar type podría ser
+        cualquier cosa y no se valida  -->
+        <xs:element name="fragil_01" minOccurs="0" maxOccurs="unbounded" /><!-- Opcional -->
+
+        <xs:element name="fragil_02" maxOccurs="unbounded"><!-- el type se define justo debajo -->
+          <xs:simpleType><!-- simpleType por no tener hijos, ya que solo afecta al TYPE de contenido
+            del elemento-->
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="0" /><!-- Longitud 0 para que no se pueda incluir nada de
+              texto-->
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="fragil_02bis" maxOccurs="unbounded"><!-- el type se define justo debajo -->
+          <xs:complexType><!-- Al definirlo como complexType sin nada dentro, será un elemento vacío
+            OBLIGATORIO (ni texto, ni hijos)-->
+            <!-- Los complexType se pueden definir vacíos, no así los simpleType que han de tener
+            definición -->
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="fragil_03" type="cadenaVacia" minOccurs="0" maxOccurs="unbounded" />
+
+        <xs:element name="fragil_03bis" type="cadenaVaciabis" minOccurs="0" maxOccurs="unbounded" />
+
+        <xs:element name="fragil_04">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:minLength value="1" />
+              <xs:maxLength value="10" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+
+        <xs:element name="fragil_05" maxOccurs="unbounded"> <!-- el type no está escrito en esta
+          línea de definición del elemento-->
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="cristal" />
+              <xs:enumeration value="medicinas" />
+              <xs:enumeration value="ceramica" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="fragil_06" minOccurs="0" maxOccurs="unbounded"><!-- Defino debajo el tipo
+          de elemento-->
+          <xs:complexType><!-- complexType por tener hijos o atributos -->
+            <!-- los complexType hay que definirlos como: sequence, all, group, o mixed -->
+            <!-- NO HAY CONTENIDO, no se define nada de contenido aquí -->
+            <xs:sequence>
+              <xs:element name="material">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="cristal" />
+                    <xs:enumeration value="medicinas" />
+                    <xs:enumeration value="ceramica" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="peso">
+                <xs:simpleType>
+                  <xs:restriction base="xs:decimal">
+                    <xs:totalDigits value="10" />
+                    <xs:fractionDigits value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="unidad_de_peso">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="kg" />
+                    <xs:enumeration value="libras" />
+                    <xs:enumeration value="onza" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="fragil_07" minOccurs="0" maxOccurs="unbounded"><!-- Defino debajo el tipo
+          de elemento-->
+          <xs:complexType mixed="true"><!-- complexType por tener hijos o atributos, mixed permitirá
+            escribir texto dentro del elemento fragil_07, pero no se valida ese texto -->
+            <!-- los complexType hay que definirlos como: sequence, all, group,  o mixed -->
+            <!-- Antes de definir los hijos, hay que definir cómo será el contenido del elemento -->
+            <!-- En este ejemplo no se ha querido limitar el texto del elemento fragil_07 -->
+            <xs:sequence>
+              <xs:element name="material">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="cristal" />
+                    <xs:enumeration value="medicinas" />
+                    <xs:enumeration value="ceramica" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="peso">
+                <xs:simpleType>
+                  <xs:restriction base="xs:decimal">
+                    <xs:totalDigits value="10" />
+                    <xs:fractionDigits value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="unidad_de_peso">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="kg" />
+                    <xs:enumeration value="libras" />
+                    <xs:enumeration value="onza" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="fragil_08" type="fragil_08_Type" minOccurs="0" maxOccurs="unbounded" />
+
+        <xs:element name="fragil_09" type="fragil_09_Type" minOccurs="0" maxOccurs="unbounded" />
+
+
+        <!-- ELEMENTOS CON ATRIBUTOS -->
+
+        <xs:element name="Afragil_00" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute name="Amaterial" default="cristal">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="(cristal|medicinas|ceramica)" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:attribute>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="Afragil_01" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute name="Amaterial" default="cristal">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="(cristal|medicinas|ceramica)" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:attribute>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="Afragil_02" maxOccurs="unbounded">
+          <xs:complexType> <!--al
+            llevar atributo ha de ser complexType, y los complexType no pueden llevar restricciones 
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="0"/>
+            </xs:restriction> -->
+            <xs:attribute name="Amaterial" default="cristal">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:pattern value="(cristal|medicinas|ceramica)" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="Afragil_02bis" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="Amaterial" default="cristal">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:pattern value="(cristal|medicinas|ceramica)" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+  <!-- DECLARACION DE TIPOS  -->
+  <!-- ****************************************************** -->
+
+  <xs:simpleType name="cadenaVacia"> <!-- simpleType NO PUEDE CONTENER simpleContent ni
+    complexContent, solo puede contener: list, union y restriction -->
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ****************************************************** -->
+
+  <xs:complexType name="cadenaVaciabis" /> <!-- complexType  SE PUEDE DEFINIR VACÍO -->
+
+  <!-- ****************************************************** -->
+
+
+  <xs:complexType name="cadenaConContenido">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- ****************************************************** -->
+
+  <xs:complexType name="fragil_08_Type">
+    <xs:sequence>
+      <xs:element name="descripcion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="VACUNAS" />
+            <xs:enumeration value="VASIJA" />
+            <xs:enumeration value="COPAS" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="material">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="cristal" />
+            <xs:enumeration value="medicinas" />
+            <xs:enumeration value="ceramica" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="peso">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="10" />
+            <xs:fractionDigits value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="unidad_de_peso">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="kg" />
+            <xs:enumeration value="libras" />
+            <xs:enumeration value="onza" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+
+  </xs:complexType>
+
+  <!-- ****************************************************** -->
+  <xs:complexType name="fragil_09_Type">
+
+  </xs:complexType>
+
+
+  <!-- ****************************************************** -->
+
+
+</xs:schema>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<automoviles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="autos2.xsd">
+<automovil> <!-- minoccurs=3   maxOccurs=unbouinde -->
+<matricula>1234ABC</matricula> <!--  usar restriction => simpleType   -->
+<marca>opel</marca>
+<modelo>corsa</modelo>
+<anio>1997</anio>
+<color>verde</color>
+<motor>  <!-- al tener hijo será obligatoriamente complexType -->
+<numero_cilindros>4</numero_cilindros>
+<tipo_combustible>diesel</tipo_combustible><!-- restriccion enumerado ( gasolina|diesel) -->
+</motor>
+<numero_de_puertas>5</numero_de_puertas>
+<tipo_de_transmisión>automatico</tipo_de_transmisión> <!-- atributos todos boolean  o (true|false)-->
+<accesorios radio="true" aire_acondicionado="false" elevalunas="true"  airbag_piloto="false" airbag_copiloto="false"></accesorios>
+</automovil>
+
+
+
+<automovil> <!-- minoccurs=3   maxOccurs=unbouinde -->
+<matricula>1234ABC</matricula> <!--  usar restriction => simpleType   -->
+<marca>opel</marca>
+<modelo>corsa</modelo>
+<anio>1997</anio>
+<color>verde</color>
+<motor>  <!-- al tener hijo será obligatoriamente complexType -->
+<numero_cilindros>4</numero_cilindros>
+<tipo_combustible>diesel</tipo_combustible><!-- restriccion enumerado ( gasolina|diesel) -->
+</motor>
+<numero_de_puertas>5</numero_de_puertas>
+<tipo_de_transmisión>automatico</tipo_de_transmisión> <!-- atributos todos boolean  o (true|false)-->
+<accesorios radio="true" aire_acondicionado="false" elevalunas="true"  airbag_piloto="false" airbag_copiloto="false"></accesorios>
+</automovil>
+
+
+<automovil> <!-- minoccurs=3   maxOccurs=unbouinde -->
+<matricula>6789JKL</matricula> <!--  usar restriction => simpleType   -->
+<marca>opel</marca>
+<modelo>corsa</modelo>
+<anio>1997</anio>
+<color>verde</color>
+<motor>
+<numero_cilindros>4</numero_cilindros>
+<tipo_combustible>diesel</tipo_combustible><!-- restriccion enumerado ( gasolina|diesel) -->
+</motor>
+<numero_de_puertas>5</numero_de_puertas>
+<tipo_de_transmisión>automatico</tipo_de_transmisión> <!-- atributos todos boolean  o (true|false)-->
+<accesorios radio="true" aire_acondicionado="false" elevalunas="true"  airbag_piloto="false" airbag_copiloto="false"></accesorios>
+</automovil>
+
+
+<automovil> <!-- minoccurs=3   maxOccurs=unbouinde -->
+<matricula>6789JKL</matricula> <!--  usar restriction => simpleType   -->
+<marca>opel</marca>
+<modelo>corsa</modelo>
+<anio>1997</anio>
+<color>verde</color>
+<motor>
+<numero_cilindros>4</numero_cilindros>
+<tipo_combustible>diesel</tipo_combustible><!-- restriccion enumerado ( gasolina|diesel) -->
+</motor>
+<numero_de_puertas>5</numero_de_puertas>
+<tipo_de_transmisión>automatico</tipo_de_transmisión> <!-- atributos todos boolean  o (true|false)-->
+<accesorios radio="true" aire_acondicionado="false" elevalunas="true"  airbag_piloto="false" airbag_copiloto="false"></accesorios>
+</automovil>
+
+
+
+
+
+
+</automoviles>

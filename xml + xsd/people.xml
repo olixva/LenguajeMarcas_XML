@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<people xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="people.xsd">
+
+<!-- Ejemplos para conseguir que NO se puedan repetir ciertos valores en el fichero xml -->
+
+<!-- Lo más simple, usando atributos tipo ID bloqueará repticiones de los valores de ese atributo -->
+<!-- Pero esos valores NO pueden empezar por un número, por la propia dfinición del tipo ID -->
+<!-- OJO: XML es case sensitive, por lo que los dni's de Eloy y Elsa son distintos -->
+
+<man dni="z12345678">Eloy</man>
+<woman dni="Z123678">Elsa</woman>
+
+<man1>
+<nombre>Javier</nombre>
+<dni1>S12343219</dni1>
+</man1>
+
+<man1>
+<nombre>Jaime</nombre>
+<!-- este valor ya existe, por lo que no sería válido <dni1>S12343219</dni1> -->
+<dni1>S12343001</dni1>
+</man1>
+
+<!-- Vamos ahora a conseguir que cualquier cadena string consiga ser única -->
+<!-- para ello usaremos un elemento <dni2> definido en <man2> que se use del tipo 12345678Z, empezando por número -->
+<!-- en este caso usamos la  clausula de definición xs:unique, que se ha de definir en el elemento  PADRE padre de aquellos que queremos que sean únicos. -->
+<!-- para este ejemplo de personas, queremos que los <man2> sean únicos en el <people>, por lo que la clausula 
+     xs:unique la declaramos al final de la definción del elemento <people>. -->
+
+<man2>
+<nombre>Ginés</nombre>
+<dni2>23232345T</dni2>
+</man2>
+
+<man2>
+<nombre>Ginés</nombre>
+ <!-- este elemento NO VALIDA por estar reètido   <dni2>23232345T</dni2>    -->
+<dni2>33332345K</dni2>
+</man2>
+
+
+<!-- hagamos ahora que el elemnto <torero> sea único pero por un atributo "mote" que podrá tener cualquier contenido-->
+
+<torero mote="EL JULI">Julio Aparicio</torero>
+<torero mote="EL YIYO">Joselito</torero>
+<torero mote="CÚCHARES">Francisco Arjona</torero>
+<torero mote="PEPÍN JIMÉNEZ">José Jiménez Alcázar</torero>
+<torero mote="EL JULI1">Julio UUUUAparicio</torero>
+
+
+
+</people>

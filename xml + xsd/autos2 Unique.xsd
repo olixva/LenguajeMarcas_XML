@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Definición del elemento principal "algo" -->
+  <xs:element name="automoviles">
+    <xs:complexType>
+      <xs:sequence> <!-- elemento RAIZ -->
+      
+      <xs:element name="automovil" minOccurs="3" maxOccurs="unbounded"><!-- Defino debajo el tipo de eleento-->
+        <xs:complexType><!-- complexType por tener hijos o atributos -->
+        <!-- los complexType hay que definirlos como: sequence, all, group,  o mixed -->
+        <!-- NO HAY CONTENIDO, no se define nada de contenido aquí -->
+        <xs:sequence> 
+           <xs:element name="matricula">
+             <xs:simpleType>
+              <xs:restriction base="xs:string">
+                   <xs:pattern value="[0-9]{4}[A-Z]{3}"/>
+              </xs:restriction>
+           </xs:simpleType>
+           </xs:element>
+           
+           <xs:element name="marca" type="xs:string"/>
+           <xs:element name="modelo" type="xs:string"/>
+           <xs:element name="anio" type="xs:integer"/>
+           <xs:element name="color" type="xs:string"/>
+           
+           <xs:element name="motor">
+           <xs:complexType>
+           <xs:sequence>
+                <xs:element name="numero_cilindros" type="xs:integer"/>
+                <xs:element name="tipo_combustible">
+                         <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                          <xs:enumeration value="gasolina"/>
+                          <xs:enumeration value="diesel"/>
+              </xs:restriction>
+           </xs:simpleType>
+                
+                </xs:element>
+           
+           </xs:sequence>           
+           </xs:complexType>
+           </xs:element>
+
+
+          <xs:element name="numero_de_puertas" type="xs:integer"/>           
+          <xs:element name="tipo_de_transmisión" type="xs:string"/>
+          
+          <xs:element name="accesorios">
+    <xs:complexType>
+       <xs:attribute name="radio" type="xs:boolean"/>
+       <xs:attribute name="aire_acondicionado" type="xs:boolean"/>
+       <xs:attribute name="elevalunas" type="xs:boolean"/>
+       <xs:attribute name="airbag_piloto" type="xs:boolean"/>
+       <xs:attribute name="airbag_copiloto" type="xs:boolean"/>
+       
+            
+    </xs:complexType>
+</xs:element>
+           
+        </xs:sequence>
+      </xs:complexType>
+      
+        
+      
+    </xs:element> <!-- name="automovilES"  --> 
+    
+         
+      </xs:sequence><!-- elemento RAIZ -->
+  </xs:complexType>
+     <xs:unique name="matriculaUnique">
+        <xs:selector xpath="automovil" />
+        <xs:field xpath="matricula" />
+    </xs:unique>   
+  </xs:element>
+  
+  </xs:schema>
